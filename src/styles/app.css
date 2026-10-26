@@ -985,17 +985,8 @@ select {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
-  .sv-top {
-    left: 380px;
-  }
-
-  .sv-hud {
-    padding-left: 380px;
-  }
-
-  .sv-hud-inner {
-    padding-left: 12px;
-  }
+  /* The top bar, HUD, intro and AR prompt all live inside the stage, and the
+     stage already begins after the panel — so they need no extra offset. */
 }
 
 @media (max-width: 819px) {
@@ -1252,11 +1243,15 @@ select {
 
   .sv-intro {
     align-items: center;
-    padding-left: 380px;
-  }
-
-  .sv-ar-prompt {
-    padding-left: 380px;
+    /* The card carries its own surface, so the scrim only needs to separate
+       it from the scene, not shade the whole viewport. */
+    background: radial-gradient(
+      ellipse at 50% 50%,
+      color-mix(in oklab, var(--tp-bg) 34%, transparent) 0%,
+      transparent 62%
+    );
+    padding-left: 24px;
+    padding-right: 24px;
   }
 }
 
