@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.DS_Store
+*.local
+.vite/
+
+# Verification artifacts written by scripts/verify.mjs
+public/p-*.png
+public/v*-*.png
+public/shot-*.png
+public/verify.json
